@@ -1,4 +1,5 @@
 #include "duckdb/main/extension_helper.hpp"
+#include "operator_public_key.hpp"
 
 #include "duckdb/common/file_system.hpp"
 #include "duckdb/common/local_file_system.hpp"
@@ -854,6 +855,9 @@ const vector<string> ExtensionHelper::GetPublicKeys(bool allow_community_extensi
 	vector<string> keys;
 	for (idx_t i = 0; public_keys[i]; i++) {
 		keys.emplace_back(public_keys[i]);
+	}
+	if (OPERATOR_EXTENSION_PUBLIC_KEY[0]) {
+		keys.emplace_back(OPERATOR_EXTENSION_PUBLIC_KEY);
 	}
 	if (allow_community_extensions) {
 		for (idx_t i = 0; community_public_keys[i]; i++) {

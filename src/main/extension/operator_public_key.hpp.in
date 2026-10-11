@@ -1,0 +1,7 @@
+#pragma once
+
+namespace duckdb {
+
+static constexpr const char *OPERATOR_EXTENSION_PUBLIC_KEY = R"duckdb_key(@DUCKDB_OPERATOR_PUBLIC_KEY@)duckdb_key";
+
+} // namespace duckdb
